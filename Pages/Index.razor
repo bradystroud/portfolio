@@ -1,9 +1,30 @@
 ﻿@page "/"
+@using Markdig;
+@inject NavigationManager NavManager;
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<div style="background-color: lightgrey; border-radius: 3px;" class="d-flex mx-5 p-3">
+    <h1 style="width: 40%; margin-right: 2rem">
+        Hi there 👋
+    </h1>
+    <p>
+        @((MarkupString) content)
+    </p>
 
-Welcome to your new app.
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    string content = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+    //TODO: Move this to a content service or something
+        var client = new HttpClient();
+        var text = await client.GetStringAsync($"{NavManager.BaseUri}Content/index.md");
+        content = Markdown.ToHtml(text);
+    }
+
+
+
+}
