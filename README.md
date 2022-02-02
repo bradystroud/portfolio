@@ -1,2 +1,2 @@
 # Portfolio
-Porfolio + blog page 
+TODO: Write readme
