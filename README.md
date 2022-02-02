@@ -1,2 +1,2 @@
-# portfolio
+# Portfolio
 Porfolio + blog page 
