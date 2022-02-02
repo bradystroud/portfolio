@@ -21,8 +21,16 @@
     {
     //TODO: Move this to a content service or something
         var client = new HttpClient();
-        var text = await client.GetStringAsync($"{NavManager.BaseUri}Content/index.md");
-        content = Markdown.ToHtml(text);
+        try
+        {
+            var text = await client.GetStringAsync($"{NavManager.BaseUri}Content/index.md");
+            content = Markdown.ToHtml(text);
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine($"Failed to get content: {e}");
+            throw;
+        }
     }
 
 
