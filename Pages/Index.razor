@@ -24,6 +24,8 @@
         try
         {
             var text = await client.GetStringAsync($"{NavManager.BaseUri}Content/index.md");
+            await client.GetStringAsync($"{NavManager.BaseUri}Content/test.txt");
+            await client.GetStringAsync($"{NavManager.BaseUri}test.txt");
             content = Markdown.ToHtml(text);
         }
         catch (HttpRequestException e)
