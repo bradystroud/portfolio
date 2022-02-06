@@ -1,0 +1,18 @@
+<div @attributes="InputAttributes">
+    <h3 class="text-white">
+        @Skill.Name
+    </h3>
+
+    @* <img src="@Skill.Path" alt="@Skill.Name"/> *@
+
+</div>
+
+@code {
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? InputAttributes { get; set; }
+
+    [Parameter]
+    public Skill Skill { get; set; }
+
+}

@@ -1,40 +1,25 @@
 ﻿@page "/"
-@using Markdig;
-@inject NavigationManager NavManager;
-
+@inherits AppComponentBase
+@inject IContentService ContentService
 
 <div style="background-color: lightgrey; border-radius: 3px;" class="d-flex mx-5 p-3">
-    <h1 style="width: 40%; margin-right: 2rem">
-        Hi there 👋
+    <h1 class="m-auto">
+        Hey 👋
     </h1>
     <p>
-        @((MarkupString) content)
+        @((MarkupString) _content)
     </p>
 
 </div>
 
+<SkillGrid/>
 
 @code {
-    string content = string.Empty;
+    private string _content = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-    //TODO: Move this to a content service or something
-        var client = new HttpClient();
-        try
-        {
-            var text = await client.GetStringAsync($"{NavManager.BaseUri}Content/index.md");
-            await client.GetStringAsync($"{NavManager.BaseUri}Content/test.txt");
-            await client.GetStringAsync($"{NavManager.BaseUri}test.txt");
-            content = Markdown.ToHtml(text);
-        }
-        catch (HttpRequestException e)
-        {
-            Console.WriteLine($"Failed to get content: {e}");
-            throw;
-        }
+        _content = await ContentService.GetHomePageContent();
     }
-
-
 
 }
