@@ -1,36 +1,37 @@
-@for (var i = 0; i < Math.Ceiling((decimal) _skills.Count / 3); i++)
-{
-    <div class="row">
-        <SkillBox skill="@_skills[position++]" class="col-4"/>
-        @if (position < _skills.Count)
-        {
-            <SkillBox skill="@_skills[position++]" class="col-4"/>
-        }
-        @if (position < _skills.Count)
-        {
-            <SkillBox skill="@_skills[position++]" class="col-4"/>
-        }
-    </div>
-}
+<div class="mt-5">
+    @for (var i = 0; i < Math.Ceiling((decimal) _skills.Count / 3); i++)
+    {
+        <div class="row m-auto bg-light rounded">
+            <SkillBox skill="@_skills[position++]" />
+            @if (position < _skills.Count)
+            {
+                <SkillBox skill="@_skills[position++]"/>
+            }
+            @if (position < _skills.Count)
+            {
+                <SkillBox skill="@_skills[position++]"/>
+            }
+        </div>
+    }
+
+</div>
+
 
 @code {
 
     readonly IList<Skill> _skills = new List<Skill>
     {
-        new Skill {Name = "C#", Path = "csharp.png"},
-        new Skill {Name = "JavaScript", Path = "javascript.png"},
-        new Skill {Name = "HTML", Path = "html.png"},
-        new Skill {Name = "CSS", Path = "css.png"},
-        new Skill {Name = "SQL", Path = "sql.png"},
-        new Skill {Name = "XML", Path = "xml.png"},
-        new Skill {Name = "Visual Basic", Path = "visualbasic.png"},
-        new Skill {Name = "ASP.NET", Path = "aspnet.png"},
-        new Skill {Name = "ASP.NET MVC", Path = "aspnetmvc.png"},
-        new Skill {Name = "ASP.NET Web API", Path = "aspnetwebapi.png"},
-        new Skill {Name = "Entity Framework", Path = "entityframework.png"},
-        new Skill {Name = "LINQ", Path = "linq.png"},
-        new Skill {Name = "WPF", Path = "wpf.png"},
-        new Skill {Name = "XAML", Path = "xaml.png"},
+        new Skill {Name = "C#", Path = "./assets/csharp.png"},
+        new Skill {Name = ".NET", Path = "./assets/net.png"},
+        new Skill {Name = "Blazor", Path = "./assets/blazor.png"},
+    // new Skill {Name = "Entity Framework", Path = "entityframework.png"},
+    // new Skill {Name = "HTML", Path = "html.png"},
+    // new Skill {Name = "CSS", Path = "css.png"},
+    // new Skill {Name = "SQL", Path = "sql.png"},
+    // new Skill {Name = "ASP.NET", Path = "aspnet.png"},
+    // new Skill {Name = "LINQ", Path = "linq.png"},
+    // new Skill {Name = "WPF", Path = "wpf.png"},
+    // new Skill {Name = "XAML", Path = "xaml.png"},
     };
 
     int position = 0;
