@@ -2,17 +2,34 @@
 @inherits AppComponentBase
 @inject IContentService ContentService
 
-<div style="background-color: lightgrey; border-radius: 3px;" class="d-flex mx-5 p-3">
+<div style="background-color: rgb(128, 128, 128, .4); color: white" class="d-flex p-3 mb-3 rounded">
     <h1 class="m-auto">
         Hey 👋
     </h1>
     <p>
-        @((MarkupString) _content)
+        <Markdown ContentName="MarkdownContent.HomePage"/>
     </p>
-
 </div>
 
-<SkillGrid/>
+<div class="d-flex justify-content-around text-white my-3">
+    <div style="max-width: 50%">
+        <h1>My tech stack 👨🏻‍💻</h1>
+        Here are some of my favourite technologies.
+        At the moment, my go-to technology is Blazor. Blazor has made Web Development so much more enjoyable by not using JavaScript
+
+    </div>
+    <SkillGrid/>
+</div>
+<div class="d-flex justify-content-around text-white my-3 rounded py-3" style="background-color: rgb(128, 128, 128, .4);">
+    <SkillGrid/> @* Replace this with blog grid? *@
+    <div style="max-width: 50%;">
+        <h1>Blogs ✍🏻</h1>
+        🚧 Coming soon! 🚧
+        <p>
+            I want to start writing about things I learn, or problems I encounter to help other developers who might stumble across the same thing.
+        </p>
+    </div>
+</div>
 
 @code {
     private string _content = string.Empty;

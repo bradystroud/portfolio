@@ -1,16 +1,8 @@
-<div @attributes="InputAttributes">
-    <h3 class="text-white">
-        @Skill.Name
-    </h3>
-
-    @* <img src="@Skill.Path" alt="@Skill.Name"/> *@
-
+<div class="col-4 d-flex justify-content-center" width="110" height="110">
+    <p style="color: white; font-size: x-large; background-color: @Skill.Color; padding: 20px 40px" class="rounded">@Skill.Name</p>
 </div>
 
 @code {
-
-    [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object>? InputAttributes { get; set; }
 
     [Parameter]
     public Skill Skill { get; set; }
