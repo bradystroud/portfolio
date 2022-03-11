@@ -1,0 +1,23 @@
+@inherits AppComponentBase
+@inject IContentService ContentService
+
+@((MarkupString) _content)
+
+@code {
+
+    [Parameter]
+    public MarkdownContent ContentName { get; set; }
+    
+    private string _content = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _content = ContentName switch
+        {
+            MarkdownContent.HomePage => await ContentService.GetHomePageContent(),
+            MarkdownContent.Blog1 => await ContentService.GetBlog1(),
+            MarkdownContent.Blog2 => await ContentService.GetBlog2(),
+            _ => _content
+            };
+    }
+}

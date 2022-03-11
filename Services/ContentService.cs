@@ -16,6 +16,16 @@ public class ContentService : IContentService
         return Markdown.ToHtml(text);
     }
 
+    public async Task<string> GetBlog1()
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<string> GetBlog2()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<IList<Blog>> GetBlogList()
     {
         var blogList = new List<Blog>();
