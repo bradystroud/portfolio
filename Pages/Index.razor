@@ -39,6 +39,19 @@
     <SkillGrid/>
 </div>
 
+<MatButton Label="Test AppInsights" OnClick="TrackEvent"/>
+
+@code {
+
+    [Inject]
+    private IApplicationInsights AppInsights { get; set; }
+
+    private async Task TrackEvent()
+    {
+        await AppInsights.TrackEvent("My Event");
+    }
+
+}
 
 @* This makes the page unscrollable.*@
 @* @code { *@
