@@ -5,6 +5,7 @@
 [![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://gitmoji.dev)
 [![.NET build and test](https://github.com/bradystroud/portfolio/actions/workflows/dotnet-build-and-test.yml/badge.svg)](https://github.com/bradystroud/portfolio/actions/workflows/dotnet-build-and-test.yml)
 [![CodeQL](https://github.com/bradystroud/portfolio/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bradystroud/portfolio/actions/workflows/codeql-analysis.yml)
+[![Licence](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://github.com/bradystroud/portfolio/blob/master/LICENSE)
 
  
  ---
