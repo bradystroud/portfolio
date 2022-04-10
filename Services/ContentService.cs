@@ -16,31 +16,30 @@ public class ContentService : IContentService
         return Markdown.ToHtml(text);
     }
 
-    public async Task<string> GetBlog1()
+    public async Task<Blog> GetBlog(BlogFrontMatter frontMatter)
     {
-        throw new NotImplementedException();
+        var text = await _httpClient.GetStringAsync($"./Content/Blogs/{frontMatter.Uri}");
+        
+        return new Blog
+        {
+            Content = text,
+            FrontMatter = frontMatter
+        };
     }
 
-    public async Task<string> GetBlog2()
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<IList<Blog>> GetBlogList()
+    public async Task<IList<BlogFrontMatter>> GetBlogList()
     {
         var blogList = new List<Blog>();
-        foreach (var file in Directory.EnumerateFiles("./Content/Blogs/", "*.md"))
-        {
-            var contents = await _httpClient.GetStringAsync("./Content/Blogs/");
-            // Parse frontmatter 
-            // Build Blog object
-            blogList.Add(new Blog
-            {
-                Title = "",
-                Content = contents
-            });
-        }
+        
+        var directory = Directory
+            .GetFiles("./Content/Blogs/", "*.md");
 
-        return blogList;
+        var posts = directory
+            .Select(File.ReadAllText)
+            .Select(md => md.GetFrontMatter<BlogFrontMatter>())
+            .ToList();
+
+
+        return posts;
     }
 }

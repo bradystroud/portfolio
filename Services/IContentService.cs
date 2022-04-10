@@ -7,7 +7,6 @@ namespace Portfolio.Services;
 public interface IContentService
 {
     Task<string> GetHomePageContent();
-    Task<string> GetBlog1();
-    Task<string> GetBlog2();
-    Task<IList<Blog>> GetBlogList();
+    Task<Blog> GetBlog(BlogFrontMatter uri);
+    Task<IList<BlogFrontMatter>> GetBlogList();
 }
