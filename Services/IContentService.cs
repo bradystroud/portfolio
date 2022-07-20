@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using Markdig;
 using Portfolio.Classes;
 
 namespace Portfolio.Services;
@@ -7,6 +5,7 @@ namespace Portfolio.Services;
 public interface IContentService
 {
     Task<string> GetHomePageContent();
-    Task<Blog> GetBlog(BlogFrontMatter uri);
-    Task<IList<BlogFrontMatter>> GetBlogList();
+    Task<Blog> GetBlog(MarkdownContent contentType);
+    Task<IList<BlogFrontmatter>> GetBlogList();
+    string GetPathForEnum(MarkdownContent contentType);
 }

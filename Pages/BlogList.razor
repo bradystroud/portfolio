@@ -1,11 +1,26 @@
-﻿@page "/blog"
+﻿@inject IContentService ContentService;
+@page "/blogs"
 
 <PageTitle>Brady Stroud | Blogs</PageTitle>
 
-@code {
-    // Generate list of files in /Content/Blogs folder
-    protected override void OnInitialized()
+@if (Blogs != null)
+{
+    foreach (var blog in Blogs.Where(b => b != null && !string.IsNullOrEmpty(b.Title)))
     {
-        
+        Console.WriteLine(blog.Title);
+        <div class="card p-3">
+            <h2>@blog.Title</h2>
+            <p>@blog.Date.ToString("MMMM dd yyyy")</p>
+            <a href="@blog.Uri">Read</a>
+        </div>
+    }
+}
+
+@code {
+    public IList<BlogFrontmatter?> Blogs { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Blogs = await ContentService.GetBlogList();
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: Blog 1
+title: MAUI Blazor - t
 date: 2022-02-09
 ---
 
@@ -10,3 +10,7 @@ for (var i = 0; i < 10; i++) {
     console.log(i);
 }
 ```
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| Text     | Text     | Text     |

@@ -7,9 +7,8 @@ namespace Portfolio.Classes;
 
 public class Blog
 {
-    public string Uri { get; set; }
+    public BlogFrontmatter Frontmatter { get; set; }
     public string Content { get; set; }
-    public BlogFrontMatter FrontMatter { get; set; }
 }
 
 public static class MarkdownExtensions
@@ -24,9 +23,19 @@ public static class MarkdownExtensions
             .UseYamlFrontMatter()
             .Build();
 
+    public static string GetMarkdownBody(this string markdown)
+    {
+        var document = Markdown.Parse(markdown, Pipeline);
+        var block = document.FindBlockAtPosition(1); 
+        //TODO: strip out frontmatter
+
+        return markdown;
+    }
+
     public static T GetFrontMatter<T>(this string markdown)
     {
         var document = Markdown.Parse(markdown, Pipeline);
+        
         var block = document
             .Descendants<YamlFrontMatterBlock>()
             .FirstOrDefault();

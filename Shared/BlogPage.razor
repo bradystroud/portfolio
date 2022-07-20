@@ -1,0 +1,24 @@
+@inject IContentService ContentService;
+
+@if (Model != null)
+{
+    <div class="text-white">
+        <h3>@Model.Frontmatter.Title</h3>
+
+        <Markdown Content="@Model.Content"/>
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public MarkdownContent Content { get; set; }
+
+    private Blog? Model { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await ContentService.GetBlog(Content);
+    }
+
+}

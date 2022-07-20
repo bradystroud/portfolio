@@ -1,22 +1,31 @@
 @inherits AppComponentBase
-@inject IContentService _contentService
+@inject IContentService ContentService
 
-@((MarkupString) _content)
+@if (!string.IsNullOrEmpty(Content))
+{
+    <div class="text-white">
+        @((MarkupString) Content)
+    </div>
+}
 
 @code {
 
     [Parameter]
     public MarkdownContent ContentName { get; set; }
-    
-    private string _content = string.Empty;
+
+    [Parameter]
+    public string? Content { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _content = ContentName switch
+        if (string.IsNullOrEmpty(Content))
         {
-            MarkdownContent.HomePage => await _contentService.GetHomePageContent(),
-            // MarkdownContent.Blog => await _contentService.GetBlog(),
-            _ => _content
-            };
+            Content = ContentName switch
+            {
+                MarkdownContent.HomePage => await ContentService.GetHomePageContent(),
+                _ => Content
+                };
+        }
     }
+
 }
