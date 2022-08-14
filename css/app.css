@@ -58,6 +58,7 @@ a:hover {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+    color: black;
 }
 
 .blazor-error-boundary {
