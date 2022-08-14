@@ -1,0 +1,32 @@
+<GridBoxBase Name="@Name" Description="@Description" Url="@Url" IconClass="fa-brands fa-github">
+    <div class="d-flex justify-content-between" >
+        <span style="color: skyblue">
+            <i class="fa-solid fa-star"></i> @Stars
+        </span>
+        <div class="d-flex">
+            @foreach (var tag in TechTags)
+            {
+                <p class="technology-tag">@tag</p>
+            }
+        </div>
+    </div>
+</GridBoxBase>
+
+
+@code {
+
+    [Parameter]
+    public int Stars { get; set; }
+
+    [Parameter]
+    public IList<string> TechTags { get; set; } = new List<string>();
+
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Description { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Url { get; set; } = string.Empty;
+}

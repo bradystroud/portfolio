@@ -1,0 +1,18 @@
+<GridBoxBase Name="@Name" Description="@Description" Url="@Url" IconClass="fa-solid fa-newspaper">
+    <p>@Date.ToString("dd MMMM yyyy")</p>
+</GridBoxBase>
+
+
+@code {
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Description { get; set; } = string.Empty;
+
+    [Parameter]
+    public DateOnly Date { get; set; }
+
+    [Parameter]
+    public string Url { get; set; } = string.Empty;
+}

@@ -15,10 +15,21 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+    <_ContentIncludedByDefault Remove="Components\CellBox.razor" />
+    <_ContentIncludedByDefault Remove="Components\Grid.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\assets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Shared\GridBoxBase.razor.css">
+      <DependentUpon>GridBoxBase.razor</DependentUpon>
+    </None>
+    <None Update="Shared\ProjectsGridBox.razor.css">
+      <DependentUpon>ProjectsGridBox.razor</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>
