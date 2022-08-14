@@ -1,6 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
+﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
 }
@@ -168,3 +166,7 @@ a:hover {
 }
 
 /* ------------------------- Loading screen */
+
+p, a, h1, h2, h3, h4, h5, h6 {
+    color: white;
+}

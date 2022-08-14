@@ -1,3 +1,19 @@
+/* /Components/CellBox.razor.rz.scp.css */
+/* /Pages/Index.razor.rz.scp.css */
+.blog-link[b-1jma93o9eg] {
+    background-color: rgb(128, 128, 128, .4);
+    flex-grow: 1;
+}
+
+.blog-link:hover[b-1jma93o9eg] {
+    cursor: pointer;
+    color: white !important;
+}
+
+.text-grey[b-1jma93o9eg] {
+    color: grey;
+}
+
 /* /Shared/Header.razor.rz.scp.css */
 a[b-ahw9cywacm] {
     color: #212529;    
@@ -11,7 +27,6 @@ a:hover[b-ahw9cywacm] {
 
 .top-row[b-ahw9cywacm] {
     background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
     justify-content: space-between;
     height: 3.5rem;
     display: flex;
