@@ -7,8 +7,13 @@
 
 .blog-link:hover[b-1jma93o9eg] {
     cursor: pointer;
-    color: white !important;
+    color: grey !important;
 }
+
+.blog-link:hover h2[b-1jma93o9eg] {
+    color: grey !important;
+}
+
 
 .text-grey[b-1jma93o9eg] {
     color: grey;
