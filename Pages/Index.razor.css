@@ -1,0 +1,14 @@
+.blog-link {
+    background-color: rgb(128, 128, 128, .4);
+    flex-grow: 1;
+}
+
+.blog-link:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.text-grey {
+    color: grey;
+}
+

@@ -1,7 +1,8 @@
 namespace Portfolio.Classes;
 
-public class Skill
+public class Cell
 {
     public string Name { get; set; }
     public string Color { get; set; }
+    public string Link { get; set; }
 }
