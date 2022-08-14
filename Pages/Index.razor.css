@@ -5,8 +5,13 @@
 
 .blog-link:hover {
     cursor: pointer;
-    color: white !important;
+    color: grey !important;
 }
+
+.blog-link:hover h2 {
+    color: grey !important;
+}
+
 
 .text-grey {
     color: grey;

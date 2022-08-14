@@ -2,9 +2,9 @@
 @inherits AppComponentBase
 
 <div style="background-color: rgb(128, 128, 128, .4); color: white" class="d-flex p-3 mb-3 rounded">
-    <h1 class="m-auto">
+    <h2 class="m-auto">
         Hey 👋
-    </h1>
+    </h2>
     <p>
         <Markdown ContentName="MarkdownContent.HomePage"/>
     </p>
@@ -13,7 +13,7 @@
 <div class="text-white my-3 py-3 rounded ">
     @* <span class="oi oi-document" style="font-size: 10rem"></span> *@
     <div >
-        <h1>✍🏻 Blogs</h1>
+        <h2>✍🏻 Blogs</h2>
         <div class="d-flex">
             <div class="rounded p-2 m-2 w-50 blog-link">
                 <h2>Maui vs flutter</h2>
@@ -30,20 +30,21 @@
 <div class="text-white my-3 py-3 rounded ">
     @* <span class="oi oi-document" style="font-size: 10rem"></span> *@
     <div >
-        <h1>🗂 Projects</h1>
+        <h2>🗂 Projects</h2>
         <div class="d-flex">
             <div class="blog-link rounded p-2 m-2 w-50 d-flex justify-content-between align-items-center">
                 <div>
                     <h2><i class="fa-brands fa-github"></i> MauiBlazorTemplate</h2>
                     <p class="text-grey">May 2022</p>
                 </div>
-                <div>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-grey"></i>
-                </div>
+                @* <div> *@
+                @*     <i class="fa-solid fa-arrow-up-right-from-square text-grey"></i> *@
+                @* </div> *@
             </div>
             <div class=" blog-link rounded p-2 m-2 w-50">
                 <h2><i class="fa-brands fa-github"></i> Scordle</h2>
-                <p class="text-grey">May 2022</p>
+                <i class="fa-solid fa-star"></i> 122
+                <p class="text-right">Record and share your Wordle scores</p>
             </div>
         </div>
     </div>
