@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Components;
-using Markdig;
 using Portfolio.Classes;
 
-namespace Portfolio.Services;
+namespace Portfolio.Interfaces;
 
 public interface IContentService
 {

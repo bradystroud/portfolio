@@ -1,5 +1,6 @@
 using Markdig;
 using Portfolio.Classes;
+using Portfolio.Interfaces;
 
 namespace Portfolio.Services;
 
