@@ -1,10 +1,19 @@
 ﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
+    color: #819595;
+}
+
+body {
+    background-color: #2F1000;
 }
 
 h1:focus {
     outline: none;
+}
+
+h2 {
+    font-family: Consolas, Monaco, monospace;
 }
 
 .btn-link {

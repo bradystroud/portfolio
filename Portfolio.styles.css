@@ -1,3 +1,7 @@
+/* /Shared/Footer.razor.rz.scp.css */
+a:hover[b-4wz2252ub4] {
+    opacity: 0.7;
+}
 /* /Shared/GridBoxBase.razor.rz.scp.css */
 .blog-link[b-ieggld9hlh] {
     flex-grow: 1;
@@ -22,14 +26,6 @@
 .blog-link:hover > div[b-ieggld9hlh] {
     background-color: rgb(128, 128, 128, .2);
 }
-
-.technology-tag[b-ieggld9hlh] {
-    background-color: skyblue;
-    color: black;
-    border-radius: 20px;
-    padding: 1px 8px;
-    margin: 3px;
-}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-p531rfodtv] {
     position: relative;
@@ -42,9 +38,10 @@ main[b-p531rfodtv] {
 }
 /* /Shared/ProjectsGridBox.razor.rz.scp.css */
 .technology-tag[b-ndf6697irc] {
-    background-color: skyblue;
-    color: black;
+    background-color: cornflowerblue;
+    color: white;
     border-radius: 20px;
     padding: 1px 8px;
     margin: 3px;
+    height: fit-content;
 }
