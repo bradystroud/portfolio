@@ -12,16 +12,10 @@ public partial class Index
     [Inject]
     public IProjectsService ProjectsService { get; set; }
 
-    public IList<Project> Projects { get; set; }
+    public IList<Project> Projects { get; set; } = new List<Project>();
     private static string BlogUrlBase => "https://medium.com/@bradystroud";
 
     protected override async Task OnInitializedAsync()
-    {
-        await Http.GetAsync("https://api.coindesk.com/v1/bpi/currentprice.json");
-        await GetGitHubPins();
-    }
-
-    private async Task GetGitHubPins()
     {
         Projects = await ProjectsService.GetPinnedProjects();
     }

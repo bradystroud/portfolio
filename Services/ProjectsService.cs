@@ -1,24 +1,23 @@
-using Portfolio.Classes;
+using System.Text.Json;
 using Portfolio.Interfaces;
+using Project = Portfolio.Classes.Project;
 
 namespace Portfolio.Services;
 
 public class ProjectsService : IProjectsService
 {
-    // private readonly HttpClient _client;
-
-    // public ProjectsService(IHttpClientFactory clientFactory)
-    // {
-    //     // _client = clientFactory.CreateClient("Data");
-    // }
-
     public async Task<IList<Project>> GetPinnedProjects()
     {
-        // _client.BaseAddress = new Uri("https://api.coindesk.com/v1/bpi/currentprice.json");
-        // _client.DefaultRequestHeaders.
-        // var response = await _client.GetAsync("https://api.coindesk.com/v1/bpi/currentprice.json");
-        // Console.WriteLine(response.StatusCode);
+        var client = new HttpClient();
+        
+        var thing = client.GetStreamAsync("https://api.bradystroud.dev/repos.json");
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true,
+            
+        };
+        var content = await JsonSerializer.DeserializeAsync<List<Project>>(await thing, options);
 
-        return new List<Project>();
+        return content;
     }
 }
