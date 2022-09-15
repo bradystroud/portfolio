@@ -2,7 +2,7 @@
 @inherits AppComponentBase
 
 <div style="background-color: rgb(128, 128, 128, .4); color: white" class="d-flex p-3 pb-0 mb-3 rounded">
-    <h2 class="m-auto">
+    <h2 class="m-auto w-10 text-center">
         Hey 👋
     </h2>
     <p>
@@ -10,9 +10,9 @@
     </p>
 </div>
 
-<div class="text-white my-3 py-3 rounded ">
+<div class="text-white my-3 py-3 rounded">
     <div >
-        <h2>✍🏻 Blogs</h2>
+        <h2>Blogs</h2>
         <div class="d-flex">
             <BlogsGridBox Name="Maui vs Flutter"
                           Description=""
@@ -26,21 +26,21 @@
     </div>
 </div>
 
-<div class="text-white my-3 py-3 rounded ">
-    <div >
-        <h2>🗂 Projects</h2>
-        <div class="d-flex flex-column flex-lg-row align-items-center">
-            @* TODO: Get this list from pins on GitHub *@
-            <ProjectsGridBox Name="MAUIBlazorTemplate"
-                             Description="Build a fully cross-platform application using .NET MAUI Blazor"
-                             Url="https://github.com/bradystroud/MAUIBlazorTemplate"
-                             Stars="55"
-                             TechTags="@(new List<string> {"blazor", "maui", "dotnet"})"/>
-            <ProjectsGridBox Name="Scordle"
-                             Description="Store and analyse your Wordle scores"
-                             Url="https://github.com/bradystroud/Scordle"
-                             TechTags="@(new List<string> {"blazor", "dotnet", "blazorise"})"
-                             Stars="120"/>
+@if (Projects.Any())
+{
+    <div class="text-white my-3 py-3 rounded ">
+        <div >
+            <h2>Projects</h2>
+            <div class="d-flex flex-column flex-lg-row align-items-center">
+                @foreach (var project in Projects)
+                {
+                    <ProjectsGridBox Name="@project.Name"
+                                     Description="@project.Description"
+                                     Url="@project.Url"
+                                     TechTags="@(project.TechTags.Take(3).ToList())"
+                                     Stars="@project.Stars"/>
+                }
+            </div>
         </div>
     </div>
-</div>
+}
