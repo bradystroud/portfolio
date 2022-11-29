@@ -36,6 +36,24 @@ a:hover[b-4wz2252ub4] {
 main[b-p531rfodtv] {
     flex: 1;
 }
+
+@media screen and (min-width: 1000px) {
+    .content[b-p531rfodtv] {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .content[b-p531rfodtv] {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .content[b-p531rfodtv] {
+        width: 70%;
+    }
+}
 /* /Shared/ProjectsGridBox.razor.rz.scp.css */
 .technology-tag[b-ndf6697irc] {
     background-color: cornflowerblue;
