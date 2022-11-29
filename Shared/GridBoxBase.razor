@@ -1,14 +1,16 @@
 <a class="blog-link rounded m-2" target="_blank" href="@(string.IsNullOrEmpty(Url) ? "#" : Url)">
     <div class="rounded p-3">
-        <h2>
-            <i class="@IconClass"></i> @Name
-        </h2>
+        <div class="d-inline-flex justify-content-between w-100">
+            <h2 class="text-break">@Name</h2>
+            <MudIcon Icon="@Icon" Class="m-2"/>
+        </div>
         @ChildContent
         <p class="text-right">@Description</p>
     </div>
 </a>
 
 @code {
+
     [Parameter]
     public string Name { get; set; } = string.Empty;
 
@@ -17,10 +19,11 @@
 
     [Parameter]
     public string Url { get; set; } = string.Empty;
-    
+
     [Parameter]
-    public string IconClass { get; set; } = string.Empty;
-    
+    public string Icon { get; set; } = string.Empty;
+
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+
 }

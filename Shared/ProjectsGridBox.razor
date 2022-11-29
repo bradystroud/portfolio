@@ -1,12 +1,12 @@
-<GridBoxBase Name="@Name" Description="@Description" Url="@Url" IconClass="fa-brands fa-github">
-    <div class="d-flex justify-content-between" >
+<GridBoxBase Name="@Name" Description="@Description" Url="@Url" Icon="@Icons.Custom.Brands.GitHub">
+    <div class="d-flex justify-content-between">
         <span style="color: skyblue">
-            <i class="fa-solid fa-star"></i> @Stars
+            <MudIcon Icon="@Icons.Material.Rounded.Star"/> @Stars
         </span>
         <div class="d-flex">
             @foreach (var tag in TechTags)
             {
-                <p class="technology-tag">@tag</p>
+                <small class="technology-tag">@tag</small>
             }
         </div>
     </div>
@@ -29,4 +29,5 @@
 
     [Parameter]
     public string Url { get; set; } = string.Empty;
+
 }
