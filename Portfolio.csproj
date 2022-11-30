@@ -7,11 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdig.SyntaxHighlighting" Version="1.1.7" />
+    <PackageReference Include="MarkdigExtensions.UrlRewriter" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="6.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Markdig" Version="0.30.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Images\.DS_Store" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Images\filetree.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Images\run-blazor.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Images\run-maui.png" />
   </ItemGroup>
 
 </Project>

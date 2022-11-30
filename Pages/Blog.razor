@@ -1,10 +1,71 @@
-﻿@page "/blog"
+﻿@page "/blogs/{FileName}"
+@using Markdown = Markdig.Markdown
+@using Markdig
+@using Markdig.SyntaxHighlighting;
+@using ColorCode
+@using Markdig.Extensions.Yaml
+@using Markdig.Renderers
+@using Markdig.Syntax
+@inject NavigationManager Navigation
+@inject HttpClient Client
 
 <PageTitle>Brady Stroud | Blogs</PageTitle>
 
+@if (string.IsNullOrEmpty(RenderedContent))
+{
+    return;
+}
+
+@((MarkupString) RenderedContent)
+
+
 @code {
-    protected override void OnInitialized()
+
+    [Parameter]
+    public string FileName { get; set; }
+
+    private string? RenderedContent { get; set; } = "<h1> TEST </h1>";
+
+    protected override async Task OnInitializedAsync()
     {
-        
+        if (string.IsNullOrEmpty(FileName))
+        {
+            Navigation.NavigateTo("/");
+        }
+
+        var response = await Client.GetAsync($"Content/Blogs/{FileName}.md");
+
+        if (response.IsSuccessStatusCode)
+        {
+            var contents = await response.Content.ReadAsStringAsync();
+
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseYamlFrontMatter()
+                .UseAutoLinks()
+                .UseUrlRewriter(link => link?.Url?.Replace("Images/", "Content/Blogs/Images/"))
+                .Build();
+            
+            var writer = new StringWriter();
+            var renderer = new HtmlRenderer(writer);
+            pipeline.Setup(renderer);
+
+            var document = Markdown.Parse(contents, pipeline);
+            var yamlBlock = document.Descendants<YamlFrontMatterBlock>().FirstOrDefault();
+
+            if (yamlBlock != null)
+            {
+                var yaml = contents.Substring(yamlBlock.Span.Start, yamlBlock.Span.Length);
+
+                Console.WriteLine("YAML!!!");
+                Console.WriteLine(yaml);
+                
+                //TODO: Do stuff with YAML here
+            }
+            
+            renderer.Render(document);
+            await writer.FlushAsync(); //TODO test
+            RenderedContent = writer.ToString();
+        }
     }
+
 }

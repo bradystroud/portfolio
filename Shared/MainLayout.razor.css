@@ -8,15 +8,13 @@ main {
     flex: 1;
 }
 
+.content img {
+    max-width: 100%;
+}
+
 @media screen and (min-width: 1000px) {
     .content {
         width: 50%;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .content {
-        width: 60%;
     }
 }
 
