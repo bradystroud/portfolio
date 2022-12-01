@@ -37,15 +37,13 @@ main[b-p531rfodtv] {
     flex: 1;
 }
 
+.content img[b-p531rfodtv] {
+    max-width: 100%;
+}
+
 @media screen and (min-width: 1000px) {
     .content[b-p531rfodtv] {
         width: 50%;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .content[b-p531rfodtv] {
-        width: 60%;
     }
 }
 
