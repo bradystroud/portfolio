@@ -1,4 +1,4 @@
-<a class="blog-link rounded m-2" target="_blank" href="@(string.IsNullOrEmpty(Url) ? "#" : Url)">
+<a class="blog-link rounded m-2" target="@(NewTab ? "_blank" : null)" href="@(string.IsNullOrEmpty(Url) ? "#" : Url)">
     <div class="rounded p-3">
         <div class="d-inline-flex justify-content-between w-100">
             <h2 class="text-break">@Name</h2>
@@ -19,6 +19,9 @@
 
     [Parameter]
     public string Url { get; set; } = string.Empty;
+    
+    [Parameter]
+    public bool NewTab { get; set; }
 
     [Parameter]
     public string Icon { get; set; } = string.Empty;

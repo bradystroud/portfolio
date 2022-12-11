@@ -1,20 +1,21 @@
 ﻿@page "/blogs/{FileName}"
 @using Markdown = Markdig.Markdown
 @using Markdig
-@using Markdig.SyntaxHighlighting;
-@using ColorCode
 @using Markdig.Extensions.Yaml
 @using Markdig.Renderers
 @using Markdig.Syntax
 @inject NavigationManager Navigation
 @inject HttpClient Client
 
-<PageTitle>Brady Stroud | Blogs</PageTitle>
+<PageTitle>Brady Stroud | Blogs | @Data.Title</PageTitle>
 
 @if (string.IsNullOrEmpty(RenderedContent))
 {
     return;
 }
+
+<h1>@Data.Title</h1>
+<p>@Data.Date</p>
 
 @((MarkupString) RenderedContent)
 
@@ -23,6 +24,8 @@
 
     [Parameter]
     public string FileName { get; set; }
+
+    private Frontmatter Data { get; set; } = new Frontmatter();
 
     private string? RenderedContent { get; set; } = "<h1> TEST </h1>";
 
@@ -44,7 +47,7 @@
                 .UseAutoLinks()
                 .UseUrlRewriter(link => link?.Url?.Replace("Images/", "Content/Blogs/Images/"))
                 .Build();
-            
+
             var writer = new StringWriter();
             var renderer = new HtmlRenderer(writer);
             pipeline.Setup(renderer);
@@ -56,14 +59,26 @@
             {
                 var yaml = contents.Substring(yamlBlock.Span.Start, yamlBlock.Span.Length);
 
-                Console.WriteLine("YAML!!!");
-                Console.WriteLine(yaml);
-                
-                //TODO: Do stuff with YAML here
+                var lines = yaml.Split('\n');
+
+                var props = Data.GetType().GetProperties();
+
+                foreach (var prop in props)
+                {
+                    var yamlLine = lines.FirstOrDefault(l => l.ToLower().StartsWith(prop.Name.ToLower()));
+
+                    if (yamlLine == null) continue;
+                    
+                    var value = yamlLine.Split(':')[1].Trim();
+                    prop.SetValue(Data, value);
+                }
             }
+
+            Console.WriteLine(Data.Title);
+            Console.WriteLine(Data.Date);
             
             renderer.Render(document);
-            await writer.FlushAsync(); //TODO test
+            await writer.FlushAsync();
             RenderedContent = writer.ToString();
         }
     }

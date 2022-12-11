@@ -13,7 +13,7 @@ public partial class Index
     public IProjectsService ProjectsService { get; set; }
 
     public IList<Project> Projects { get; set; } = new List<Project>();
-    private static string BlogUrlBase => "https://medium.com/@bradystroud";
+    private static string BlogUrlBase => "/blogs/";
 
     protected override async Task OnInitializedAsync()
     {
