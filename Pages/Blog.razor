@@ -25,9 +25,9 @@
     [Parameter]
     public string FileName { get; set; }
 
-    private Frontmatter Data { get; set; } = new Frontmatter();
+    private Frontmatter Data { get; set; } = new();
 
-    private string? RenderedContent { get; set; } = "<h1> TEST </h1>";
+    private string? RenderedContent { get; set; } = "";
 
     protected override async Task OnInitializedAsync()
     {
